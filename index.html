@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Portal</title>
+</head>
+<body>
+    <h1>Welcome to the Job Portal</h1>
+    <a href="{{ url_for('register', role='seeker') }}">
+        <button>Register as Job Seeker</button>
+    </a>
+    <a href="{{ url_for('register', role='provider') }}">
+        <button>Register as Job Provider</button>
+    </a>
+    <br><br>
+    <a href="{{ url_for('login') }}">Login</a>
+</body>
+</html>

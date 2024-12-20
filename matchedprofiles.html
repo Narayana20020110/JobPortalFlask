@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matched Profiles</title>
+</head>
+<body>
+    <h1>Matched Profiles</h1>
+    <a href="{{ url_for('jobs_dashboard') }}">
+        <button>Back to Jobs Dashboard</button>
+    </a>
+
+    <table border="1">
+        <tr>
+            <th>Job ID</th>
+            <th>User Email</th>
+            <th>Resume</th>
+        </tr>
+        {% for submission in submissions %}
+        <tr>
+            <td>{{ submission.jid }}</td>
+            <td>{{ submission.email }}</td>
+            <td>
+                <a href="{{ url_for('download_resume', filename=submission.resume) }}">
+                    <button>Download Resume</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
