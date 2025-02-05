@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register as a {{ role.capitalize() }}</h1>
+    <form method="POST" action={{url_for('register',role=role)}}>
+        <label for="email">Email</label>
+        <input type="email" name="email" required>
+        <label for="password">Password</label>
+        <input type="password" name="password" required>
+
+        {% if role == 'provider' %}
+        <label for="websiteurl">Website URL</label>
+        <input type="text" name="websiteurl" required>
+        {% endif %}
+
+        <button type="submit">Register</button>
+    </form>
+   <p>Already have an account? <a href="{{ url_for('login',role=role) }}">Login as {{role}}</a></p>
+</body>
+</html>

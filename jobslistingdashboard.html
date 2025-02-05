@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Job Listings</title>
+</head>
+<body>
+    <button onclick = "window.location.href='{{url_for('logout')}}'" >Logout</button>
+    <br><br>
+    <h1>Job Listings</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+        {% for job in jobs %}
+        <tr>
+            <td>{{ job.jid }}</td>
+            <td>{{ job.title }}</td>
+            <td>{{ job.description }}</td>
+            <td><a href="{{ url_for('apply_job', jid=job.jid) }}">Apply</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
